@@ -22,6 +22,11 @@ function countdown() {
     secondsEl.innerHTML = formatTime(seconds);
 }
 
+//const daysEl = document.getElementById("days");
+//const hoursEl = document.getElementById("hours");
+//const minsEl = document.getElementById("mins");
+//const secondsEl = document.getElementById("seconds");
+
 function formatTime(time) {
     return time < 10 ? `0${time}` : time;
 }
