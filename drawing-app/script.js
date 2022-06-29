@@ -4,10 +4,11 @@ const decreaseBtn = document.getElementById("decrease");
 const sizeEl = document.getElementById("size");
 const colorEl = document.getElementById("color");
 const clearEl = document.getElementById("clear");
-const ctx = canvas.getContext("2d");
+
+const ctx = canvas.getContext("2d"); // new ctx = getContext()
 
 let size = 30;
-let isPressed = false;
+let isPressed = false; // for mouse position : mousedown mouseup mousemove
 let color = "black";
 let x = undefined;
 let y = undefined;
@@ -15,8 +16,8 @@ let y = undefined;
 canvas.addEventListener("mousedown", (e) => {
     isPressed = true;
 
-    x = e.offsetX;
-    y = e.offsetY;
+    x = e.offsetX; // mouse position X 
+    y = e.offsetY; //  mouse position X 
 });
 
 canvas.addEventListener("mouseup", (e) => {
@@ -37,14 +38,14 @@ canvas.addEventListener("mousemove", (e) => {
         y = y2;
     }
 });
-
+// drawCircle function
 function drawCircle(x, y) {
-    ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fillStyle = color;
+    ctx.beginPath(); //Path 
+    ctx.arc(x, y, size, 0, Math.PI * 2); // arc
+    ctx.fillStyle = color; 
     ctx.fill();
 }
-
+// drawLine function
 function drawLine(x1, y1, x2, y2) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
@@ -53,7 +54,7 @@ function drawLine(x1, y1, x2, y2) {
     ctx.lineWidth = size * 2;
     ctx.stroke();
 }
-
+// size
 increaseBtn.addEventListener("click", () => {
     size += 5;
 
@@ -73,7 +74,7 @@ decreaseBtn.addEventListener("click", () => {
 
     updateSizeOnScreen();
 });
-
+// color
 colorEl.addEventListener("change", (e) => {
     color = e.target.value;
 });
