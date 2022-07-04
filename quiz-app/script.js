@@ -80,19 +80,21 @@ function deselectAnswers() {
 submitBtn.addEventListener("click", () => {
     // check to see the answer
     const answer = getSelected();
-
+// if () {Increment the score}
     if (answer) {
         if (answer === quizData[currentQuiz].correct) {
             score++;
         }
-
+// Increment currentQuiz
         currentQuiz++;
+// Check if not lastQuiz loadQuiz()
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
+// Print score/ quizData.length
             quiz.innerHTML = `
                 <h2>You answered correctly at ${score}/${quizData.length} questions.</h2>
-                
+            // Onclick location.reload    
                 <button onclick="location.reload()">Reload</button>
             `;
         }
